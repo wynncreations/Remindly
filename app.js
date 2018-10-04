@@ -26,12 +26,6 @@ mongoose.connect(process.env.DEVURL, options, function () {
 });
 
 
-//Tell the app, to use the route
-app.use(indexRoute);
-app.use("/user", userRoute);
-app.use("/customer", customerRoute);
-
-
 //Catchall 404 route.
 app.get("*", (req, res) => {
     res.redirect("../");
