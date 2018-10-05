@@ -15,8 +15,6 @@ require("dotenv").config();
 const expressVueMiddleware = expressVue.init();
 app.use(expressVueMiddleware);
 
-
-
 var options = {
     useNewUrlParser: true
 };

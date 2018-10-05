@@ -20,5 +20,13 @@
     "dotenv": "^6.0.0",
     "express-vue": "^5.7.1",
     "method-override": "^3.0.0"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.12.7",
+    "jade": "^1.11.0",
+    "less": "^3.8.1",
+    "node-sass": "^4.9.3",
+    "pug": "^2.0.3",
+    "stylus": "^0.54.5"
   }
 }
