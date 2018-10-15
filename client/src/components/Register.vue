@@ -1,17 +1,31 @@
 <template>
   <div>
-    
+    <h1>Register</h1>
+    <input
+      type="email"
+      name="email"
+      placeholder="email"
+    />
+    <input 
+      type="password"
+      name="password"
+      placeholder="password"
+    />
+    <br>
+    <button>Register</button>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Register',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
     }
   }
 }
 </script>
 
+<style scoped>
+
+</style>
