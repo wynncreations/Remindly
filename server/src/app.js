@@ -8,8 +8,12 @@ app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(cors());
 
+app.post('/register', (req,res)=>{
+    res.send("Registered! " + " " + req.body.email);
+});
+
 app.get("/status", (req,res)=>{
     res.send("Express Server online.");
 });
 
-app.listen(process.env.PORT || 8080);
+app.listen(process.env.PORT || 8081);
