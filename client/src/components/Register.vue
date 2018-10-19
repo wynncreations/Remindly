@@ -5,6 +5,7 @@
     <input type="password" v-model="password" name="password" placeholder="password"/>
     <br>
     <button @click="register">Register</button>
+    <a href="./search">Search</a>
   </div>
 </template>
 
