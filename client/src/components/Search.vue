@@ -15,21 +15,22 @@ export default {
   name: 'Search',
   data () {
     return {
-      weather: [{}],
+      weather: '',
       zip: ''
     }
   },
   methods: {
-    getData () {
+    getData (zip) {
       axios
-        .get('http://api.openweathermap.org/data/2.5/forecast?zip=75110,us&APPID=def77ba41b64b1a678fa39e248d9225a')
+        .get('http://api.openweathermap.org/data/2.5/forecast?zip=' + this.zip + ',us&APPID=def77ba41b64b1a678fa39e248d9225a')
         .then((response) => {
-          for (var i = 0; i < response.data.list.length; i++) {
-            this.weather.push(JSON.stringify(response.data.list[i]))
+          for (var i = 39; i < response.data.list.length; i++) {
+            this.weather = response.data.list[i]
             console.log(response.data.list[i])
           }
         })
-      return this.weather[0]
+      this.weather = JSON.parse(this.weather)
+      return this.weather.clouds
     }
   }
 }
