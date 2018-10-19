@@ -6,7 +6,7 @@
       <input type="text" v-model="zip" name="zip" placeholder="Zipcode"/>
       <br>
       <button @click="getData">Search</button>
-      {{weather}}
+      <li v-for="weather in weatherEvents">{{weather}}</li>
     </div>
   </div>
 </template>
@@ -19,7 +19,8 @@ export default {
     return {
       weather: '',
       zip: '',
-      error: ''
+      error: '',
+      weatherEvents: ''
     }
   },
   methods: {
@@ -38,6 +39,11 @@ export default {
         })
         .then((response) => {
           this.weather = response.data.list
+          for (var i = 0; i < this.weather.length; i++) {
+            if (this.weather.weather[0].description === 'moderate rain' || this.weather.weather[0].description === 'heavy intensity rain' || this.weather.weather[0].description === 'light rain') {
+              this.weatherEvents.push('Good fishing in the rain at ')
+            }
+          }
         })
     }
   }
