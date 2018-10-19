@@ -6,6 +6,7 @@
     <button @click="getData">Search</button>
     {{weather}}
     {{zip}}
+    {{error}}
   </div>
 </template>
 
@@ -16,13 +17,17 @@ export default {
   data () {
     return {
       weather: '',
-      zip: ''
+      zip: '',
+      error: ''
     }
   },
   methods: {
     getData (zip) {
       axios
         .get('http://api.openweathermap.org/data/2.5/forecast?zip=' + this.zip + ',us&APPID=def77ba41b64b1a678fa39e248d9225a')
+        .catch((error) => {
+          this.error = error.response.data.message
+        })
         .then((response) => {
           for (var i = 39; i < response.data.list.length; i++) {
             this.weather = response.data.list[i]
